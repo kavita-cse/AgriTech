@@ -11,6 +11,9 @@ const Sidebar = ({ activeTab, setActiveTab, mobileOpen, setMobileOpen, user, onL
     { id: 'marketplace', label: 'Marketplace', icon: 'bi-shop' },
     { id: 'forum', label: 'Community Forum', icon: 'bi-chat-dots' },
     { id: 'consultation', label: 'Expert Consultation', icon: 'bi-people' },
+    ...(user?.role === 'admin'
+      ? [{ id: 'admin', label: 'Admin Panel', icon: 'bi-shield-check' }]
+      : []),
     { id: 'settings', label: 'Settings', icon: 'bi-gear' },
   ];
 

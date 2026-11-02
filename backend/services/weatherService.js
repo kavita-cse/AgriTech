@@ -75,3 +75,4 @@ const getWeatherData = async (district = 'Nashik', state = 'Maharashtra') => {
 module.exports = {
   getWeatherData,
 };
+

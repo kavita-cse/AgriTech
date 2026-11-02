@@ -7,3 +7,4 @@ router.use(authenticateToken);
 router.get('/', getWeather);
 
 module.exports = router;
+

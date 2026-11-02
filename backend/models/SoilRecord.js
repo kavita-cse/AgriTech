@@ -68,3 +68,4 @@ const soilRecordSchema = new mongoose.Schema(
 const SoilRecord = mongoose.model('SoilRecord', soilRecordSchema);
 
 module.exports = SoilRecord;
+

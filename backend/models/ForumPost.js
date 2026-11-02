@@ -94,3 +94,4 @@ const forumPostSchema = new mongoose.Schema(
 const ForumPost = mongoose.model('ForumPost', forumPostSchema);
 
 module.exports = ForumPost;
+

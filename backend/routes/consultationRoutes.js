@@ -27,3 +27,4 @@ router.get('/open', requireVerifiedExpert, getOpenConsultations);
 router.put('/:id/respond', requireVerifiedExpert, respondToConsultation);
 
 module.exports = router;
+

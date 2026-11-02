@@ -29,13 +29,36 @@ const createFarm = async (req, res, next) => {
       });
     }
 
+    const normalizeSoilType = (type) => {
+      if (!type) return 'black';
+      const s = type.toLowerCase();
+      if (s.includes('alluvial')) return 'alluvial';
+      if (s.includes('black')) return 'black';
+      if (s.includes('red')) return 'red';
+      if (s.includes('clay')) return 'clay';
+      if (s.includes('sandy')) return 'sandy';
+      if (s.includes('loam')) return 'loam';
+      return 'other';
+    };
+
+    const normalizeIrrigationType = (type) => {
+      if (!type) return 'drip';
+      const i = type.toLowerCase();
+      if (i.includes('drip')) return 'drip';
+      if (i.includes('sprinkler')) return 'sprinkler';
+      if (i.includes('rain')) return 'rain-fed';
+      if (i.includes('canal')) return 'canal';
+      if (i.includes('borewell')) return 'borewell';
+      return 'surface';
+    };
+
     const farm = new Farm({
       farmerId: req.user._id,
       farmName: farmName.trim(),
       totalArea: Number(totalArea),
       areaUnit: areaUnit || 'acres',
-      soilType: soilType || 'black',
-      irrigationType: irrigationType || 'drip',
+      soilType: normalizeSoilType(soilType),
+      irrigationType: normalizeIrrigationType(irrigationType),
       surveyNumber: surveyNumber?.trim() || 'Pending Survey Verification',
       district: district?.trim() || req.user.district || 'Nashik',
       state: state?.trim() || req.user.state || 'Maharashtra',

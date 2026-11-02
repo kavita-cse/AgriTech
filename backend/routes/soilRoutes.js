@@ -15,3 +15,4 @@ router.get('/', getSoilRecords);
 router.get('/:id', checkOwnership(SoilRecord), getSoilRecordById);
 
 module.exports = router;
+

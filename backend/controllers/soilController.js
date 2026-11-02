@@ -126,3 +126,4 @@ module.exports = {
   getSoilRecords,
   getSoilRecordById,
 };
+

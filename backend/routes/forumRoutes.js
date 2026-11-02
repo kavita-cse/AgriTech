@@ -39,3 +39,4 @@ router.post(
 router.delete('/posts/:id', authenticateToken, deletePost);
 
 module.exports = router;
+

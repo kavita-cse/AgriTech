@@ -55,3 +55,4 @@ const seedAdmin = async () => {
 };
 
 seedAdmin();
+

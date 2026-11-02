@@ -7,6 +7,14 @@ const { globalLimiter } = require('./middleware/rateLimiter');
 const { notFoundHandler, errorHandler } = require('./middleware/errorHandler');
 const healthRoutes = require('./routes/healthRoutes');
 const authRoutes = require('./routes/authRoutes');
+const farmRoutes = require('./routes/farmRoutes');
+const cropRoutes = require('./routes/cropRoutes');
+const soilRoutes = require('./routes/soilRoutes');
+const weatherRoutes = require('./routes/weatherRoutes');
+const marketRoutes = require('./routes/marketRoutes');
+const forumRoutes = require('./routes/forumRoutes');
+const consultationRoutes = require('./routes/consultationRoutes');
+const adminRoutes = require('./routes/adminRoutes');
 
 // Load environment variables from .env if present
 dotenv.config();
@@ -37,6 +45,14 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 // 2. Application Routes
 app.use('/api/health', healthRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/farms', farmRoutes);
+app.use('/api/crops', cropRoutes);
+app.use('/api/soil', soilRoutes);
+app.use('/api/weather', weatherRoutes);
+app.use('/api', marketRoutes);
+app.use('/api/forum', forumRoutes);
+app.use('/api/consultations', consultationRoutes);
+app.use('/api/admin', adminRoutes);
 
 // 3. Error Handling Middleware
 app.use(notFoundHandler);
